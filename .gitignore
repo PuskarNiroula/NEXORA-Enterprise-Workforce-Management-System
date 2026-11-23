@@ -1,5 +1,18 @@
 Nexora.Api/appsettings.json
+Nexora.Api/appsettings.Development.json
 
 NEXORA.Web/appsettings.json
+NEXORA.Web/appsettings.Developement.json
+
+
+**/bin/
+**/obj/
+.idea/
+.vs/
+*.user
+*.suo
+*.DotSettings.user
+
+
 **/appsettings.json
 **/appsettings.Development.json
