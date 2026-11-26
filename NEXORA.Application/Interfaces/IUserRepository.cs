@@ -1,6 +1,9 @@
+using NEXORA.Domain.Entities;
+
 namespace NEXORA.Application.Interfaces;
 
 public interface IUserRepository
 {
-    public 
+    public Task<User> GetUserByEmailAsync(string email);
+    
 }

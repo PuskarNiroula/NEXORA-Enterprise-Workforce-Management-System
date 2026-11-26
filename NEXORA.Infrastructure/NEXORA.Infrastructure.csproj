@@ -26,8 +26,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\NEXORA.Application\NEXORA.Application.csproj" />
-        <ProjectReference Include="..\NEXORA.Domain\NEXORA.Domain.csproj" />
+      <ProjectReference Include="..\NEXORA.Application\NEXORA.Application.csproj" />
     </ItemGroup>
+    
 
 </Project>

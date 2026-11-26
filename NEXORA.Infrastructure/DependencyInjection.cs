@@ -1,10 +1,10 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NEXORA.Application.Interfaces;
 using NEXORA.Infrastructure.Data;
-using NEXORA.Infrastructure.Models;
+using NEXORA.Infrastructure.Repository;
+using NEXORA.Infrastructure.Security;
 
 namespace NEXORA.Infrastructure;
 
@@ -19,9 +19,8 @@ public static class DependencyInjection
                 configuration.GetConnectionString("DefaultConnection")
             ));
 
-        services.AddIdentity<UserDbModel, IdentityRole<Guid>>()
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultTokenProviders();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IJwtTokenGenerator, JwtHelper>();
 
         return services;
     }

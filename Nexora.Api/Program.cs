@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.FileProviders;
 using NEXORA.Application;
 using NEXORA.Controllers;
 using NEXORA.Infrastructure;
 using NEXORA.Infrastructure.Data;
+using NEXORA.Infrastructure.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,18 @@ builder.Services
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.Services
+    .AddIdentity<UserDbModel, IdentityRole<Guid>>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/login";
+    options.AccessDeniedPath = "/login";
+    options.Cookie.Name = "NEXORA.Auth";
+});
 
 var app = builder.Build();
 
