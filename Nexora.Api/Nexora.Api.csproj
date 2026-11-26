@@ -7,7 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\NEXORA.Application\NEXORA.Application.csproj" />
       <ProjectReference Include="..\NEXORA.Infrastructure\NEXORA.Infrastructure.csproj" />
+      <ProjectReference Include="..\NEXORA.Web\NEXORA.Web.csproj" />
     </ItemGroup>
 
     <ItemGroup>
