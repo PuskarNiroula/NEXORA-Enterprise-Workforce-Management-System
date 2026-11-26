@@ -1,1 +1,356 @@
-<h2> Welcome User</h2>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA | Enterprise Workforce Management</title>
+    <meta name="description" content="NEXORA is an enterprise workforce management platform for employees, organizations, attendance, leave, security and analytics.">
+    <link rel="stylesheet" href="css/welcome.css"/>
+</head>
+<body>
+
+<header class="container">
+    <nav class="navbar">
+        <a href="/" class="logo">
+            <div class="logo-icon">N</div>
+            NEX<span>ORA</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">Platform</a>
+            <a href="#architecture">Technology</a>
+            <a href="#contact">About</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="/login" class="btn btn-outline">Sign In</a>
+            <a href="/login" class="btn btn-primary">Get Started ↗</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="hero container" id="home">
+        <div class="hero-content">
+            <div>
+                <div class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    ENTERPRISE WORKFORCE PLATFORM
+                </div>
+
+                <h1>
+                    Empower Your<br>
+                    People. Manage<br>
+                    <span class="gradient-text">Everything.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Meet NEXORA — a unified workforce management platform
+                    designed to simplify operations, strengthen security,
+                    connect teams, and transform the way your organization works.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="/login" class="btn btn-primary">
+                        Explore NEXORA &nbsp; →
+                    </a>
+                    <a href="#features" class="btn btn-outline">
+                        Discover Features
+                    </a>
+                </div>
+
+                <div class="hero-note">
+                    <span class="check">✓</span>
+                    <strong>One platform.</strong>
+                    <span>Complete workforce control.</span>
+                </div>
+            </div>
+
+            <div class="dashboard-wrap">
+                <div class="dashboard">
+                    <div class="dashboard-top">
+                        <div>
+                            <div class="dashboard-title">Workforce Overview</div>
+                            <div class="dashboard-subtitle">Your organization at a glance</div>
+                        </div>
+                        <div class="live">● SYSTEM LIVE</div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">Total Employees</div>
+                            <div class="stat-number">1,284</div>
+                            <div class="stat-change">↗ Workforce overview</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Present Today</div>
+                            <div class="stat-number">1,156</div>
+                            <div class="stat-change">✓ Attendance overview</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">On Leave</div>
+                            <div class="stat-number">42</div>
+                            <div class="stat-change">Leave management</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Departments</div>
+                            <div class="stat-number">18</div>
+                            <div class="stat-change">Organization overview</div>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-heading">
+                            <strong>Workforce Activity</strong>
+                            <span>Weekly overview</span>
+                        </div>
+                        <div class="chart">
+                            <div class="bar" style="height:48%"></div>
+                            <div class="bar" style="height:70%"></div>
+                            <div class="bar" style="height:58%"></div>
+                            <div class="bar" style="height:85%"></div>
+                            <div class="bar" style="height:65%"></div>
+                            <div class="bar" style="height:95%"></div>
+                            <div class="bar" style="height:76%"></div>
+                        </div>
+                        <div class="chart-days">
+                            <span>Mon</span>
+                            <span>Tue</span>
+                            <span>Wed</span>
+                            <span>Thu</span>
+                            <span>Fri</span>
+                            <span>Sat</span>
+                            <span>Sun</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="floating-card">
+                    <div class="floating-icon">✓</div>
+                    <div>
+                        <strong>Workforce Connected</strong>
+                        <p>One unified management experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section section" id="features">
+        <div class="container">
+            <div class="section-heading">
+                <div class="section-label">THE NEXORA ECOSYSTEM</div>
+                <h2>Everything Your Workforce Needs</h2>
+                <p>
+                    From employee onboarding to enterprise analytics,
+                    every essential operation comes together in one intelligent,
+                    secure, and scalable platform.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <article class="feature-card">
+                    <span class="feature-number">01 / SECURITY</span>
+                    <div class="feature-icon">⌑</div>
+                    <h3>Authentication & Security</h3>
+                    <p>
+                        Secure registration, JWT authentication, refresh tokens,
+                        password recovery, email verification, account protection,
+                        and multi-device sessions.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-number">02 / ACCESS CONTROL</span>
+                    <div class="feature-icon">♙</div>
+                    <h3>Roles & Permissions</h3>
+                    <p>
+                        Dynamic role-based access control, multiple roles,
+                        permission assignment, authorization policies,
+                        and Super Admin management.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-number">03 / PEOPLE</span>
+                    <div class="feature-icon">♧</div>
+                    <h3>Employee Management</h3>
+                    <p>
+                        Complete employee profiles, registration, employment
+                        history, document management, status tracking,
+                        and powerful search.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-number">04 / STRUCTURE</span>
+                    <div class="feature-icon">⌘</div>
+                    <h3>Organization Management</h3>
+                    <p>
+                        Manage companies, branches, departments, designations,
+                        teams, employee assignments, and organizational hierarchy.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-number">05 / TIME OFF</span>
+                    <div class="feature-icon">◷</div>
+                    <h3>Leave Management</h3>
+                    <p>
+                        Leave types, balances, applications, approval workflows,
+                        multi-level approvals, leave history, and reports.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-number">06 / TIME TRACKING</span>
+                    <div class="feature-icon">◴</div>
+                    <h3>Attendance Management</h3>
+                    <p>
+                        Check-in and check-out, working hours, late arrivals,
+                        early departures, attendance tracking, and reports.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-number">07 / COMMUNICATION</span>
+                    <div class="feature-icon">✉</div>
+                    <h3>Notification Management</h3>
+                    <p>
+                        In-app and email notifications, event-based alerts,
+                        and read/unread notification tracking.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-number">08 / TRANSPARENCY</span>
+                    <div class="feature-icon">◎</div>
+                    <h3>Audit & Activity Logs</h3>
+                    <p>
+                        Login history, failed login tracking, IP monitoring,
+                        CRUD activity logs, and role and permission change history.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-number">09 / INTELLIGENCE</span>
+                    <div class="feature-icon">▥</div>
+                    <h3>Dashboard & Analytics</h3>
+                    <p>
+                        Employee statistics, attendance insights, leave analytics,
+                        department reports, and recent activity monitoring.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-number">10 / CONTROL</span>
+                    <div class="feature-icon">⚙</div>
+                    <h3>System Administration</h3>
+                    <p>
+                        Global configurations, account management, pagination,
+                        sorting, filtering, soft deletion, and centralized
+                        exception handling.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <span class="feature-number">11 / ENGINEERING</span>
+                    <div class="feature-icon">⌘</div>
+                    <h3>Advanced Backend Architecture</h3>
+                    <p>
+                        Clean Architecture, Repository and Unit of Work,
+                        dependency injection, validation, Redis, background jobs,
+                        API versioning, Swagger, testing, and Docker.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="architecture">
+        <div class="container">
+            <div class="architecture">
+                <div>
+                    <div class="section-label">BUILT FOR THE FUTURE</div>
+                    <h2>Enterprise Architecture. <span class="gradient-text">Built to Scale.</span></h2>
+                    <p>
+                        NEXORA is designed around modern software engineering
+                        principles. Its modular architecture helps maintain
+                        separation of concerns, reliable data access, security,
+                        and long-term maintainability.
+                    </p>
+
+                    <div class="architecture-list">
+                        <div class="architecture-item"><span class="check">✓</span> Clean Architecture</div>
+                        <div class="architecture-item"><span class="check">✓</span> JWT Security</div>
+                        <div class="architecture-item"><span class="check">✓</span> Entity Framework Core</div>
+                        <div class="architecture-item"><span class="check">✓</span> SQL Server</div>
+                        <div class="architecture-item"><span class="check">✓</span> Redis Caching</div>
+                        <div class="architecture-item"><span class="check">✓</span> RESTful APIs</div>
+                        <div class="architecture-item"><span class="check">✓</span> Background Jobs</div>
+                        <div class="architecture-item"><span class="check">✓</span> Docker Ready</div>
+                    </div>
+                </div>
+
+                <div class="architecture-visual">
+                    <div class="layer">
+                        <strong>Presentation Layer</strong>
+                        <span>NEXORA Web · API · User Interface</span>
+                    </div>
+                    <div class="layer-arrow">↓</div>
+                    <div class="layer">
+                        <strong>Application Layer</strong>
+                        <span>Services · DTOs · Validation · Use Cases</span>
+                    </div>
+                    <div class="layer-arrow">↓</div>
+                    <div class="layer">
+                        <strong>Domain Layer</strong>
+                        <span>Entities · Business Rules · Interfaces</span>
+                    </div>
+                    <div class="layer-arrow">↓</div>
+                    <div class="layer">
+                        <strong>Infrastructure Layer</strong>
+                        <span>EF Core · SQL Server · Redis · External Services</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section container" id="contact">
+        <div class="cta-box">
+            <h2>One Workforce. One Powerful Platform.</h2>
+            <p>
+                Bring your people, processes, and organization together.<br>
+                Welcome to a smarter way of managing work.
+            </p>
+            <a href="/login" class="btn">Enter NEXORA &nbsp; →</a>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <a href="/" class="logo">
+            <div class="logo-icon">N</div>
+            NEX<span>ORA</span>
+        </a>
+
+        <p>© @DateTime.Now.Year NEXORA. All rights reserved.</p>
+
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#architecture">Technology</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
