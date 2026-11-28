@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NEXORA.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class UserAndEmployee : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,6 +23,33 @@ namespace NEXORA.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "department",
+                columns: table => new
+                {
+                    department_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    status = table.Column<string>(type: "nvarchar(max)", nullable: false, defaultValue: "1")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_department", x => x.department_id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "User",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_User", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -73,6 +100,42 @@ namespace NEXORA.Infrastructure.Migrations
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "employees",
+                columns: table => new
+                {
+                    employee_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    user_id = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    employee_code = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    full_name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    department_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    work_email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    personal_email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    image = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
+                    dob = table.Column<DateOnly>(type: "date", nullable: true),
+                    gender = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    joining_date = table.Column<DateOnly>(type: "date", nullable: false),
+                    employment_status = table.Column<int>(type: "int", nullable: false),
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    is_deleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_employees", x => x.employee_id);
+                    table.ForeignKey(
+                        name: "FK_employees_User_user_id",
+                        column: x => x.user_id,
+                        principalTable: "User",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_employees_department_department_id",
+                        column: x => x.department_id,
+                        principalTable: "department",
+                        principalColumn: "department_id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -189,6 +252,24 @@ namespace NEXORA.Infrastructure.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_employees_department_id",
+                table: "employees",
+                column: "department_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_employees_employee_code",
+                table: "employees",
+                column: "employee_code",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_employees_user_id",
+                table: "employees",
+                column: "user_id",
+                unique: true,
+                filter: "[user_id] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "Users",
                 column: "normalized_email");
@@ -220,10 +301,19 @@ namespace NEXORA.Infrastructure.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "employees");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "User");
+
+            migrationBuilder.DropTable(
+                name: "department");
         }
     }
 }

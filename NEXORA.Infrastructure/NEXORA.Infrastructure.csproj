@@ -28,6 +28,10 @@
     <ItemGroup>
       <ProjectReference Include="..\NEXORA.Application\NEXORA.Application.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Migrations\" />
+    </ItemGroup>
     
 
 </Project>
