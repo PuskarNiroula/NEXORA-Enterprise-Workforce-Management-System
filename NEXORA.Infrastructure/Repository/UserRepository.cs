@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using NEXORA.Application.Exception;
 using NEXORA.Application.Interfaces;
+using NEXORA.Application.Interfaces.RepositoryInterfaces;
 using NEXORA.Domain.Entities;
 using NEXORA.Infrastructure.Data;
 

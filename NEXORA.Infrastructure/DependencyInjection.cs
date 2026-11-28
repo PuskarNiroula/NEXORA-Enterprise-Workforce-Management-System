@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NEXORA.Application.Interfaces;
+using NEXORA.Application.Interfaces.RepositoryInterfaces;
+using NEXORA.Application.Interfaces.ServiceInterfaces;
 using NEXORA.Infrastructure.Data;
 using NEXORA.Infrastructure.Repository;
 using NEXORA.Infrastructure.Security;
@@ -21,6 +23,7 @@ public static class DependencyInjection
 
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IJwtTokenGenerator, JwtHelper>();
+        services.AddScoped<IDepartmentRepository,DepartmentRepository>();
 
         return services;
     }

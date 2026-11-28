@@ -12,7 +12,7 @@ using NEXORA.Infrastructure.Data;
 namespace NEXORA.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20261128063216_UserAndEmployee")]
+    [Migration("20261128073223_UserAndEmployee")]
     partial class UserAndEmployee
     {
         /// <inheritdoc />

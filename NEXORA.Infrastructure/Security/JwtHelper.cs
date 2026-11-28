@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using NEXORA.Application.Interfaces;
+using NEXORA.Application.Interfaces.ServiceInterfaces;
 
 namespace NEXORA.Infrastructure.Security;
 
