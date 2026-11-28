@@ -1,0 +1,191 @@
+
+
+.form-card {
+    background: var(--surface, #ffffff);
+    border: 1px solid var(--border, #e8edf4);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.04));
+    overflow: hidden;
+}
+
+.form-card-header {
+    padding: 22px 25px;
+    border-bottom: 1px solid var(--border, #e8edf4);
+}
+
+.form-card-title {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 16px;
+    font-weight: 650;
+}
+
+.form-card-subtitle {
+    margin: 6px 0 0;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.form-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* ========================================
+   FORM GROUP
+======================================== */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.form-label {
+    color: var(--text-dark);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.required-mark {
+    color: #dc2626;
+    margin-left: 3px;
+}
+
+/* ========================================
+   INPUTS
+======================================== */
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 10px 13px;
+
+    background: #ffffff;
+    border: 1px solid #dce2eb;
+    border-radius: 7px;
+
+    color: var(--text-dark);
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form-input,
+.form-select {
+    min-height: 42px;
+}
+
+.form-textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #a0a9b8;
+}
+
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+    border-color: #b8c4d5;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: var(--primary, #4169ee);
+    box-shadow: 0 0 0 3px rgba(65, 105, 238, 0.10);
+}
+
+/* ========================================
+   VALIDATION
+======================================== */
+
+.form-error {
+    color: #dc2626;
+    font-size: 12px;
+}
+
+.form-input.input-invalid,
+.form-select.input-invalid,
+.form-textarea.input-invalid {
+    border-color: #dc2626;
+}
+
+.form-input.input-invalid:focus,
+.form-select.input-invalid:focus,
+.form-textarea.input-invalid:focus {
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.10);
+}
+
+/* ========================================
+   FORM FEEDBACK
+======================================== */
+
+.form-message {
+    display: none;
+    padding: 11px 14px;
+    border-radius: 7px;
+    font-size: 13px;
+}
+
+.form-message.success {
+    display: block;
+    color: #15803d;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+}
+
+.form-message.error {
+    display: block;
+    color: #b91c1c;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+}
+
+/* ========================================
+   FORM FOOTER
+======================================== */
+
+.form-card-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+
+    padding: 18px 25px;
+    border-top: 1px solid var(--border, #e8edf4);
+    background: #fafbfd;
+}
+
+.form-card-footer button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+@media (max-width: 600px) {
+    .form-card-header,
+    .form-body {
+        padding: 18px;
+    }
+
+    .form-card-footer {
+        padding: 15px 18px;
+        flex-wrap: wrap;
+    }
+
+    .form-group {
+        max-width: 100%;
+    }
+}

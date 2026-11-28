@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Nexora.Api.ViewModel;
+using NEXORA.Application.Dto.Department;
 using NEXORA.Application.Interfaces.ServiceInterfaces;
 
 namespace Nexora.Api.Controllers;
@@ -30,7 +31,7 @@ public class DepartmentController(IDepartmentService service):ControllerBase
     }
 
     [HttpPatch("{departmentId}")]
-    public async Task<IActionResult> Activate(string departmentId)
+    public async Task<IActionResult> Activate(Guid departmentId)
     {
         try
         {
@@ -45,7 +46,7 @@ public class DepartmentController(IDepartmentService service):ControllerBase
         }
     }
     [HttpPatch("{departmentId}")]
-    public async Task<IActionResult> Deactivate(string departmentId)
+    public async Task<IActionResult> Deactivate(Guid departmentId)
     {
         try
         {
@@ -59,6 +60,41 @@ public class DepartmentController(IDepartmentService service):ControllerBase
             return StatusCode(500, ex.Message);
         }
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Store(DepartmentCreateDto dto)
+    {
+        try
+        {
+            await service.CreateDepartmentAsync(dto);
+            return Ok("Department created successfully");
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        
+    }  
+    [HttpPut("{departmentId}")]
+    public async Task<IActionResult> Update(Guid id,string name)
+    {
+        try
+        {
+            var dto = new DepartmentUpdateDto
+            {
+                Name = name,
+                DepartmentId = id
+            };
+            await service.UpdateDepartmentAsync(dto);
+            return Ok("Department created successfully");
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        
+    }
+    
     
     
 }

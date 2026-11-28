@@ -10,225 +10,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>@pageTitle | NEXORA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@pageTitle | NEXORA</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/layout.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/css/layout.css"/>
 
 
-@RenderSection("Styles", required: false)
+    @RenderSection("Styles", required: false)
 </head>
 
 <body>
 <div class="app-shell" id="appShell">
 
-<aside class="sidebar" id="sidebar">
-<a href="/home/dashboard" class="sidebar-brand">
-<div class="brand-mark">N</div>
-<div class="brand-copy">
-<div class="brand-name">NEX<span>ORA</span></div>
-<span class="brand-caption">WORKFORCE PLATFORM</span>
+    <aside class="sidebar" id="sidebar">
+        <a href="/home/dashboard" class="sidebar-brand">
+            <div class="brand-mark">N</div>
+            <div class="brand-copy">
+                <div class="brand-name">NEX<span>ORA</span></div>
+                <span class="brand-caption">WORKFORCE PLATFORM</span>
+            </div>
+        </a>
+
+        <div class="sidebar-scroll">
+
+            <div class="nav-section">
+                <div class="nav-section-title">Workspace</div>
+
+                <a href="/home/dashboard"
+                   class="nav-link @(currentController == "Home" && currentAction == "Dashboard" ? "active" : "")">
+                    <span class="nav-icon">▦</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Workforce</div>
+
+                <a href="/employees" class="nav-link">
+                    <span class="nav-icon">♙</span>
+                    <span class="nav-text">Employees</span>
+                </a>
+
+                <a href="/organizations" class="nav-link">
+                    <span class="nav-icon">▤</span>
+                    <span class="nav-text">Organizations</span>
+                </a>
+
+                <a href="/department" class="nav-link">
+                    <span class="nav-icon">♧</span>
+                    <span class="nav-text">Departments</span>
+                </a>
+
+                <a href="/designations" class="nav-link">
+                    <span class="nav-icon">▣</span>
+                    <span class="nav-text">Designations</span>
+                </a>
+
+                <a href="/teams" class="nav-link">
+                    <span class="nav-icon">♧</span>
+                    <span class="nav-text">Teams</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Time Management</div>
+
+                <a href="/attendance" class="nav-link">
+                    <span class="nav-icon">◷</span>
+                    <span class="nav-text">Attendance</span>
+                </a>
+
+                <a href="/leave" class="nav-link">
+                    <span class="nav-icon">▧</span>
+                    <span class="nav-text">Leave Management</span>
+                </a>
+
+                <a href="/leave/approvals" class="nav-link">
+                    <span class="nav-icon">✓</span>
+                    <span class="nav-text">Leave Approvals</span>
+                    <span class="nav-badge">Tasks</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Communication</div>
+
+                <a href="/notifications" class="nav-link">
+                    <span class="nav-icon">♧</span>
+                    <span class="nav-text">Notifications</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Security & Access</div>
+
+                <a href="/users" class="nav-link">
+                    <span class="nav-icon">♙</span>
+                    <span class="nav-text">User Management</span>
+                </a>
+
+                <a href="/roles" class="nav-link">
+                    <span class="nav-icon">◈</span>
+                    <span class="nav-text">Roles</span>
+                </a>
+
+                <a href="/permissions" class="nav-link">
+                    <span class="nav-icon">⌑</span>
+                    <span class="nav-text">Permissions</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Monitoring</div>
+
+                <a href="/auditlogs" class="nav-link">
+                    <span class="nav-icon">◎</span>
+                    <span class="nav-text">Audit Logs</span>
+                </a>
+
+                <a href="/reports" class="nav-link">
+                    <span class="nav-icon">▥</span>
+                    <span class="nav-text">Reports & Analytics</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">System</div>
+
+                <a href="/settings" class="nav-link">
+                    <span class="nav-icon">⚙</span>
+                    <span class="nav-text">Settings</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-help">
+                <div class="help-icon">?</div>
+                <div class="help-text">
+                    <strong>Need assistance?</strong>
+                    <span>Contact system support</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="main-area">
+        <header class="topbar">
+            <div class="topbar-left">
+                <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                    ☰
+                </button>
+
+                <div class="page-heading">
+                    <h1>@pageTitle</h1>
+                    <div class="breadcrumb">NEXORA / <span>@pageTitle</span></div>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+                <a href="/notifications" class="top-icon" aria-label="Notifications">
+                    ♧
+                    <span class="notification-dot"></span>
+                </a>
+
+                <div class="profile">
+                    <div class="profile-avatar">
+                        @(currentUser.Length > 0 ? currentUser.Substring(0, 1).ToUpper() : "A")
+                    </div>
+
+                    <div class="profile-info">
+                        <strong>@currentUser</strong>
+                        <span>Administrator</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-wrapper">
+            <div class="content-container">
+                @RenderBody()
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <span>© @DateTime.Now.Year NEXORA. All rights reserved.</span>
+            <span>Enterprise Workforce Management Platform</span>
+        </footer>
+    </div>
 </div>
-</a>
 
-<div class="sidebar-scroll">
-
-<div class="nav-section">
-<div class="nav-section-title">Workspace</div>
-
-<a href="/home/dashboard"
-class="nav-link @(currentController == "Home" && currentAction == "Dashboard" ? "active" : "")">
-<span class="nav-icon">▦</span>
-<span class="nav-text">Dashboard</span>
-</a>
-</div>
-
-<div class="nav-section">
-<div class="nav-section-title">Workforce</div>
-
-<a href="/employees" class="nav-link">
-<span class="nav-icon">♙</span>
-<span class="nav-text">Employees</span>
-</a>
-
-<a href="/organizations" class="nav-link">
-<span class="nav-icon">▤</span>
-<span class="nav-text">Organizations</span>
-</a>
-
-<a href="/department" class="nav-link">
-<span class="nav-icon">♧</span>
-<span class="nav-text">Departments</span>
-</a>
-
-<a href="/designations" class="nav-link">
-<span class="nav-icon">▣</span>
-<span class="nav-text">Designations</span>
-</a>
-
-<a href="/teams" class="nav-link">
-<span class="nav-icon">♧</span>
-<span class="nav-text">Teams</span>
-</a>
-</div>
-
-<div class="nav-section">
-<div class="nav-section-title">Time Management</div>
-
-<a href="/attendance" class="nav-link">
-<span class="nav-icon">◷</span>
-<span class="nav-text">Attendance</span>
-</a>
-
-<a href="/leave" class="nav-link">
-<span class="nav-icon">▧</span>
-<span class="nav-text">Leave Management</span>
-</a>
-
-<a href="/leave/approvals" class="nav-link">
-<span class="nav-icon">✓</span>
-<span class="nav-text">Leave Approvals</span>
-<span class="nav-badge">Tasks</span>
-</a>
-</div>
-
-<div class="nav-section">
-<div class="nav-section-title">Communication</div>
-
-<a href="/notifications" class="nav-link">
-<span class="nav-icon">♧</span>
-<span class="nav-text">Notifications</span>
-</a>
-</div>
-
-<div class="nav-section">
-<div class="nav-section-title">Security & Access</div>
-
-<a href="/users" class="nav-link">
-<span class="nav-icon">♙</span>
-<span class="nav-text">User Management</span>
-</a>
-
-<a href="/roles" class="nav-link">
-<span class="nav-icon">◈</span>
-<span class="nav-text">Roles</span>
-</a>
-
-<a href="/permissions" class="nav-link">
-<span class="nav-icon">⌑</span>
-<span class="nav-text">Permissions</span>
-</a>
-</div>
-
-<div class="nav-section">
-<div class="nav-section-title">Monitoring</div>
-
-<a href="/auditlogs" class="nav-link">
-<span class="nav-icon">◎</span>
-<span class="nav-text">Audit Logs</span>
-</a>
-
-<a href="/reports" class="nav-link">
-<span class="nav-icon">▥</span>
-<span class="nav-text">Reports & Analytics</span>
-</a>
-</div>
-
-<div class="nav-section">
-<div class="nav-section-title">System</div>
-
-<a href="/settings" class="nav-link">
-<span class="nav-icon">⚙</span>
-<span class="nav-text">Settings</span>
-</a>
-</div>
-
-</div>
-
-<div class="sidebar-bottom">
-<div class="sidebar-help">
-<div class="help-icon">?</div>
-<div class="help-text">
-<strong>Need assistance?</strong>
-<span>Contact system support</span>
-</div>
-</div>
-</div>
-</aside>
-
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-<div class="main-area">
-<header class="topbar">
-<div class="topbar-left">
-<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
-☰
-</button>
-
-<div class="page-heading">
-<h1>@pageTitle</h1>
-<div class="breadcrumb">NEXORA / <span>@pageTitle</span></div>
-</div>
-</div>
-
-<div class="topbar-right">
-<a href="/notifications" class="top-icon" aria-label="Notifications">
-♧
-<span class="notification-dot"></span>
-</a>
-
-<div class="profile">
-<div class="profile-avatar">
-@(currentUser.Length > 0 ? currentUser.Substring(0, 1).ToUpper() : "A")
-</div>
-
-<div class="profile-info">
-<strong>@currentUser</strong>
-<span>Administrator</span>
-</div>
-</div>
-</div>
-</header>
-
-<main class="content-wrapper">
-<div class="content-container">
-@RenderBody()
-</div>
-</main>
-
-<footer class="app-footer">
-<span>© @DateTime.Now.Year NEXORA. All rights reserved.</span>
-<span>Enterprise Workforce Management Platform</span>
-</footer>
-</div>
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-const appShell = document.getElementById("appShell");
-const sidebarToggle = document.getElementById("sidebarToggle");
-const sidebarOverlay = document.getElementById("sidebarOverlay");
+    const appShell = document.getElementById("appShell");
+    const sidebarToggle = document.getElementById("sidebarToggle");
+    const sidebarOverlay = document.getElementById("sidebarOverlay");
 
-sidebarToggle.addEventListener("click", () => {
-                                                if (window.innerWidth <= 900) {
-                                                appShell.classList.toggle("sidebar-mobile-open");
-                                            } else {
-                                                  appShell.classList.toggle("sidebar-collapsed");
-                                              }
-                                            });
+    sidebarToggle.addEventListener("click", () => {
+        if (window.innerWidth <= 900) {
+            appShell.classList.toggle("sidebar-mobile-open");
+        } else {
+            appShell.classList.toggle("sidebar-collapsed");
+        }
+    });
 
-sidebarOverlay.addEventListener("click", () => {
-                                                 appShell.classList.remove("sidebar-mobile-open");
-                                             });
+    sidebarOverlay.addEventListener("click", () => {
+        appShell.classList.remove("sidebar-mobile-open");
+    });
 
-document.querySelectorAll(".sidebar .nav-link").forEach(link => {
-                                                                  if (link.pathname === window.location.pathname) {
-                                                                  link.classList.add("active");
-                                                              }
-                                                              });
+    document.querySelectorAll(".sidebar .nav-link").forEach(link => {
+        if (link.pathname === window.location.pathname) {
+            link.classList.add("active");
+        }
+    });
 </script>
 
 @RenderSection("Scripts", required: false)

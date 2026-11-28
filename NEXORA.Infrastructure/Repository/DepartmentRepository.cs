@@ -8,49 +8,79 @@ using NEXORA.Infrastructure.Data;
 
 namespace NEXORA.Infrastructure.Repository;
 
-public class DepartmentRepository(ApplicationDbContext context):IDepartmentRepository
+public class DepartmentRepository(ApplicationDbContext context) : IDepartmentRepository
 {
     public async Task<List<Department>> GetAllAsync()
     {
         return await context.Departments.ToListAsync();
-
     }
 
-    public async Task<bool> Activate(string id)
+    public async Task<bool> Activate(Guid id)
     {
-        var dep = await context.Departments.FindAsync(id);
+        var department = await context.Departments.FindAsync(id);
 
-        if (dep == null)
-            throw new DepartmentNotFoundException(id);
+        if (department == null)
+            throw new DepartmentNotFoundException(id.ToString());
 
-        dep.Status = DepartmentStatusEnum.Active;
+        department.Status = DepartmentStatusEnum.Active;
 
         await context.SaveChangesAsync();
 
         return true;
     }
 
-    public async Task<bool> Deactivate(string id)
+    public async Task<bool> Deactivate(Guid id)
     {
-        var dep = await context.Departments.FindAsync(id);
+        var department = await context.Departments.FindAsync(id);
 
-        if (dep == null)
-            throw new DepartmentNotFoundException(id);
+        if (department == null)
+            throw new DepartmentNotFoundException(id.ToString());
 
-        dep.Status = DepartmentStatusEnum.Inactive;
+        department.Status = DepartmentStatusEnum.Inactive;
 
         await context.SaveChangesAsync();
 
         return true;
     }
 
-    public Task<bool> Create(DepartmentCreateDto dto)
+    public async Task<bool> CreateAsync(DepartmentCreateDto dto)
     {
-        throw new NotImplementedException();
+        var department = new Department
+        {
+            Name = dto.Name,
+            Status = DepartmentStatusEnum.Active
+        };
+
+        await context.Departments.AddAsync(department);
+        await context.SaveChangesAsync();
+
+        return true;
     }
 
-    public Task<bool> Update(DepartmentUpdateDto dto)
+    public async Task<bool> UpdateAsync(DepartmentUpdateDto dto)
     {
-        throw new NotImplementedException();
+        var department = await context.Departments.FindAsync(dto.DepartmentId);
+
+        if (department == null)
+            throw new DepartmentNotFoundException(dto.DepartmentId.ToString());
+
+        department.Name = dto.Name;
+
+        await context.SaveChangesAsync();
+
+        return true;
+    }
+
+    public async Task<Department?> GetDepartmentByNameAsync(string name, Guid? id = null)
+    {
+        var query = context.Departments
+            .Where(s => s.Name == name);
+
+        if (id.HasValue)
+        {
+            query = query.Where(s => s.DepartmentId != id.Value);
+        }
+
+        return await query.FirstOrDefaultAsync();
     }
 }

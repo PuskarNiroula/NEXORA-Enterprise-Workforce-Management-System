@@ -1,0 +1,78 @@
+@{
+    ViewData["Title"] = "Create Department";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/form.css" asp-append-version="true" />
+}
+
+<div class="create-page">
+
+    <div class="create-page-header">
+        <div>
+            <h2 class="create-page-title">Create Department</h2>
+            <p class="create-page-description">
+                Add a new department to your organization.
+            </p>
+        </div>
+
+        <a asp-controller="Department" asp-action="Index" class="btn-secondary">
+            <i class="bi bi-arrow-left"></i>
+            Back to Departments
+        </a>
+    </div>
+
+    <div class="form-card">
+
+        <div class="form-card-header">
+            <h3 class="form-card-title">Department Information</h3>
+            <p class="form-card-subtitle">
+                Enter the department details below.
+            </p>
+        </div>
+
+        <form id="departmentCreateForm">
+
+            <div class="form-body">
+
+                <div class="form-group">
+                    <label for="departmentName" class="form-label">
+                        Department Name
+                        <span class="required-mark">*</span>
+                    </label>
+
+                    <input type="text"
+                           id="departmentName"
+                           name="name"
+                           class="form-input"
+                           placeholder="e.g. Human Resources"
+                           autocomplete="off"
+                           required />
+
+                    <span id="departmentNameError" class="form-error"></span>
+                </div>
+
+                <div id="formMessage" class="form-message" role="alert"></div>
+
+            </div>
+
+            <div class="form-card-footer">
+                <a asp-controller="Department"
+                   asp-action="Index"
+                   class="btn-secondary">
+                    Cancel
+                </a>
+
+                <button type="submit" id="createDepartmentButton" class="btn-create">
+                    <i class="bi bi-plus-circle"></i>
+                    Create Department
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/Department/create.js" asp-append-version="true"></script>
+}
