@@ -12,7 +12,7 @@ using NEXORA.Infrastructure.Data;
 namespace NEXORA.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20261128073223_UserAndEmployee")]
+    [Migration("20261128081128_UserAndEmployee")]
     partial class UserAndEmployee
     {
         /// <inheritdoc />
@@ -168,11 +168,10 @@ namespace NEXORA.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("name");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
+                    b.Property<int>("Status")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("1")
+                        .HasColumnType("int")
+                        .HasDefaultValue(1)
                         .HasColumnName("status");
 
                     b.HasKey("DepartmentId");

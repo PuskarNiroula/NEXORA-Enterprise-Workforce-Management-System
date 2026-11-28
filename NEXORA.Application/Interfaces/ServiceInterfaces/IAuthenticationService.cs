@@ -1,4 +1,4 @@
-namespace NEXORA.Application.Interfaces;
+namespace NEXORA.Application.Interfaces.ServiceInterfaces;
 
 public interface IAuthenticationService
 {

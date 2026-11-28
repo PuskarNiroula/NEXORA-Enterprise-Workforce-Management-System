@@ -165,11 +165,10 @@ namespace NEXORA.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("name");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
+                    b.Property<int>("Status")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("1")
+                        .HasColumnType("int")
+                        .HasDefaultValue(1)
                         .HasColumnName("status");
 
                     b.HasKey("DepartmentId");

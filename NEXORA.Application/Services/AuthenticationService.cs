@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using NEXORA.Application.Interfaces;
+using NEXORA.Application.Interfaces.RepositoryInterfaces;
+using NEXORA.Application.Interfaces.ServiceInterfaces;
 using NEXORA.Domain.Entities;
 
 namespace NEXORA.Application.Services;

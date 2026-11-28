@@ -1,0 +1,108 @@
+
+@{
+    ViewData["Title"] = "Departments";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="/css/Department.css" />
+}
+
+<div class="index-page">
+
+    <!-- Page Heading -->
+    <div class="index-page-header">
+
+        <div class="index-page-heading">
+            <h2 class="index-page-title">
+                Department Management
+            </h2>
+
+            <p class="index-page-description">
+                Manage and organize departments across your organization.
+            </p>
+        </div>
+
+        <div class="index-page-actions">
+            <a href="/Departments/Create" class="btn-create">
+                <span class="btn-plus">+</span>
+                Create Department
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- Main Content Card -->
+    <div class="index-card">
+
+        <!-- Card Header -->
+        <div class="index-card-header">
+
+            <div class="index-card-heading">
+                <h3 class="index-card-title">
+                    All Departments
+                </h3>
+
+                <span class="index-card-subtitle">
+                    View and manage your organization's departments
+                </span>
+            </div>
+
+            <!-- Search -->
+            <div class="index-search">
+                <span class="index-search-icon">⌕</span>
+
+                <input type="text"
+                       id="departmentSearch"
+                       placeholder="Search departments..." />
+            </div>
+
+        </div>
+
+
+        <!-- Table -->
+        <div class="index-table-wrapper">
+
+            <table class="index-table">
+
+                <thead class="table-head">
+                    <tr>
+                        <th class="col-id">ID</th>
+                        <th>Department Name</th>
+                        <th class="col-status">Status</th>
+                        <th class="col-actions">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="departmentTableBody">
+                    <tr>
+                        <td colspan="4">
+                            <div class="index-loading">
+                                <div class="loading-spinner"></div>
+                                <span>Loading departments...</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- Card Footer -->
+        <div class="index-card-footer">
+
+            <span>
+                Showing <strong id="visibleCount">0</strong> departments
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="/js/departments.js"></script>
+}

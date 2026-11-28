@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
-using IAuthenticationService = NEXORA.Application.Interfaces.IAuthenticationService;
+using IAuthenticationService = NEXORA.Application.Interfaces.ServiceInterfaces.IAuthenticationService;
 
 namespace Nexora.Api.Controllers;
 

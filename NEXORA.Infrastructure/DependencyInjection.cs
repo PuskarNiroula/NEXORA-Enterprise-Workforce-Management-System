@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NEXORA.Application.Interfaces;
 using NEXORA.Application.Interfaces.RepositoryInterfaces;
 using NEXORA.Application.Interfaces.ServiceInterfaces;
 using NEXORA.Infrastructure.Data;

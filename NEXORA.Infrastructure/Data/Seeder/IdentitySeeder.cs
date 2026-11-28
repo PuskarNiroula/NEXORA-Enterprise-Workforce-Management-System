@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NEXORA.Infrastructure.Models;
 
-namespace NEXORA.Infrastructure.Data;
+namespace NEXORA.Infrastructure.Data.Seeder;
 
 public static class IdentitySeeder
 {
@@ -62,5 +62,7 @@ public static class IdentitySeeder
         {
             await userManager.AddToRoleAsync(user, roleName);
         }
+
+        await DepartmentSeeder.SeedAsync(context);
     }
 }

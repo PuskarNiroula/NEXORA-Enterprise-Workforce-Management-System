@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using NEXORA.Application.Interfaces;
+using NEXORA.Application.Interfaces.ServiceInterfaces;
 using NEXORA.Application.Services;
 using NEXORA.Domain.Entities;
 
@@ -12,6 +12,7 @@ public static class DependencyInjection
         this IServiceCollection services)
     {
         services.AddScoped<IAuthenticationService,AuthenticationService>();
+        services.AddScoped<IDepartmentService,DepartmentService>();
 
         services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 

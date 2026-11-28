@@ -4,6 +4,7 @@ using NEXORA.Application;
 using NEXORA.Controllers;
 using NEXORA.Infrastructure;
 using NEXORA.Infrastructure.Data;
+using NEXORA.Infrastructure.Data.Seeder;
 using NEXORA.Infrastructure.Models;
 
 var builder = WebApplication.CreateBuilder(args);
